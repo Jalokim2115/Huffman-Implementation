@@ -6,11 +6,11 @@ def MIN_Heapify(lista, i, Heap_size):
     smaller = i
 
     if left < Heap_size:
-        if lista[smaller] > lista[left]:
+        if lista[smaller].freq > lista[left].freq:
             smaller = left
             
     if right < Heap_size:
-        if lista[smaller] > lista[right]:
+        if lista[smaller].freq > lista[right].freq:
             smaller = right
             
     if smaller != i:
@@ -31,3 +31,14 @@ def Heap_Sort(lista):
         Heap_size -= 1
         MIN_Heapify(lista, 0, Heap_size)
     return sorted_list
+
+def Heap_Extract(lista):
+    result = lista[0]
+    lista[0], lista[len(lista)-1] = lista[len(lista)-1], lista[0]
+    del lista[len(lista) - 1]
+    MIN_Heapify(lista,0,len(lista))
+    return result
+    
+def Heap_Insert(lista,Node):
+    lista.append(Node)
+    Build_Heap(lista,len(lista))
