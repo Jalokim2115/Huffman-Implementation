@@ -1,15 +1,14 @@
 from Heap import *
 from Node import *
 from Huffman import *
+from zakodowywacz import *
 
+heap = []
+znaki = {}
 kodziki = {}
-Node1 = Node("a",10)
-Node2 = Node("b",7)
-Node3 = Node("c",5)
-Node4 = Node("d",3)
-Node5 = Node("z",1)
-heap=[Node1,Node2,Node3,Node4]
 
-Build_Heap(heap,len(heap))
+heap = kodowanie()
+
 kodziki = Tablica_znakow(Huffman(heap))
+
 print(kodziki)
